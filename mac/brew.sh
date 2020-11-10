@@ -13,10 +13,10 @@ brew upgrade
 BREW_PREFIX=$(brew --prefix)
 
 # Install and setup Mongodb
-brew tap mongodb/brew
-brew install mongodb-community
-sudo mkdir -p /System/Volumes/Data/data/db
-sudo chown -R `id -un` /System/Volumes/Data/data/db
+# brew tap mongodb/brew
+# brew install mongodb-community
+# sudo mkdir -p /System/Volumes/Data/data/db
+# sudo chown -R `id -un` /System/Volumes/Data/data/db
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -34,8 +34,9 @@ brew install gnu-sed
 brew install wget --with-iri
 
 brew install gmp
-brew install grep
-brew install node
+# brew install grep
+brew install ripgrep
+# brew install node
 
 # Install useful binaries.
 brew install ack
@@ -43,7 +44,7 @@ brew install autojump
 brew install ffmpeg
 brew install git
 brew install git-lfs
-brew install github/gh/gh
+brew install gh
 brew install imagemagick --with-webp
 brew install p7zip
 brew install pigz
@@ -59,28 +60,23 @@ brew install youtube-dl
 brew tap caskroom/cask
 
 ## Apps I use
-brew cask install 1password
 brew cask install alfred
-brew cask install beamer
+# brew cask install beamer
 brew cask install dash
 brew cask install dropbox
-brew cask install homebrew/cask-versions/firefox-nightly # Nightly
+# brew cask install homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
 brew cask install google-chrome #Chrome
-brew cask install homebrew/cask-versions/google-chrome-canary # Chrome Canary
-brew cask install grammarly
-brew cask install iterm2
+# brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
-brew cask install mongodb-compass
-brew cask install notion
-brew cask install sketch
+# brew cask install sketch
 brew cask install skitch
 brew cask install skype
 brew cask install slack
-brew cask install spotify
-brew cask install textexpander
-brew cask install tower
-brew cask install wechat
+# brew cask install spotify
+# brew cask install textexpander
+# brew cask install tower
+# brew cask install wechat
 
 # Remove outdated versions from the cellar.
 brew cleanup
