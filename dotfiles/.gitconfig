@@ -205,3 +205,6 @@
 [user]
 	email = simply.ingenious@gmail.com
 	name = Salman Javed
+
+[pull]
+	rebase = false

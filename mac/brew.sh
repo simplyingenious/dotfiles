@@ -31,20 +31,25 @@ brew install findutils
 brew install gnu-sed
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+brew install wget
 
 brew install gmp
-# brew install grep
+brew install grep
 brew install ripgrep
 # brew install node
 
 # Install useful binaries.
 brew install ack
 brew install autojump
+brew install docker
+brew install docker-machine
 brew install ffmpeg
 brew install git
 brew install git-lfs
 brew install gh
+brew install gpg
+brew install n
+brew install rbenv
 brew install imagemagick --with-webp
 brew install p7zip
 brew install pigz
@@ -76,6 +81,7 @@ brew cask install slack
 # brew cask install spotify
 # brew cask install textexpander
 # brew cask install tower
+brew cask install virtualbox
 # brew cask install wechat
 
 # Remove outdated versions from the cellar.
