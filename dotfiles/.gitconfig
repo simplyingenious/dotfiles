@@ -158,6 +158,10 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = bc3
+
+[difftool]
+    prompt = false
 
 [diff "bin"]
 
@@ -173,6 +177,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = bc3
 
 [push]
 
@@ -208,3 +213,6 @@
 
 [pull]
 	rebase = false
+
+[mergetool "bc3"]
+	trustExitCode = true

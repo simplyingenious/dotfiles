@@ -61,6 +61,11 @@ brew install tree
 brew install vbindiff
 brew install youtube-dl
 
+brew install bat
+brew install prettyping
+brew install ncdu
+brew install tldr
+
 # Installs Casks
 brew tap caskroom/cask
 

@@ -98,14 +98,25 @@ alias ncu="npm-check -u"
 alias svgop="svgo --pretty --disable=mergePaths,convertShapeToPath --multipass"
 alias svgor="svgop --recursive"
 
-# Aliases for np
-alias pub="np"
-alias patch="np patch"
-alias minor="np minor"
-alias major="np major"
-
 # Gulp aliases
 alias gulp='npx gulp'
 
 # Check opened TCP Ports
 alias openedports="sudo netstat -plunt"
+
+
+
+alias c=clear
+alias squish='git commit -v -a --amend -C HEAD'
+alias gcleanup="git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
+alias gdt="git difftool"
+alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
+alias dm='docker-machine'
+
+
+
+# CLI Improved
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
