@@ -9,10 +9,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 
-# Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
-
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
@@ -98,8 +94,3 @@ function savebatt() {
   fkill Google Drive File Stream
   fkill Creative Cloud
 }
-
-# Aliases for MongoDB
-# alias mongod='brew services run mongodb-community'
-# alias mongod-status='brew services list'
-# alias mongod-stop='brew services stop mongodb-community'

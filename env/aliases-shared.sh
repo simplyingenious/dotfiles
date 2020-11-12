@@ -69,10 +69,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "${method}"="lwp-request -m '${method}'"
 done
 
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
@@ -104,16 +100,14 @@ alias gulp='npx gulp'
 # Check opened TCP Ports
 alias openedports="sudo netstat -plunt"
 
-
-
-alias c=clear
-alias squish='git commit -v -a --amend -C HEAD'
+# Git aliases
 alias gcleanup="git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
 alias gdt="git difftool"
+alias gs="git status -s"
+alias squish='git commit -v -a --amend -C HEAD'
+
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias dm='docker-machine'
-
-
 
 # CLI Improved
 alias cat='bat'

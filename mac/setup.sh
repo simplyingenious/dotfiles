@@ -6,6 +6,9 @@ source mac/brew.sh
 # Set npm permissions and install global binaries
 source shared/npm.sh
 
+# Instal zsh plugins before linking dotfiles
+antibody bundle < .zsh-plugins.txt > $HOME/.zsh-plugins.sh
+
 # Create symlinks for dotfiles
 source link-dotfiles.sh
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source $HOME/.zsh-plugins.sh
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.
@@ -48,17 +50,11 @@ export GPG_TTY=$(tty);
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
-eval `docker-machine env default`
 
-# zsh-history-substring-search
-# Load from Brew
-# As per `brew info zsh-history-substring-search`
-source `brew --prefix`/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Bind UP and DOWN arrow keys
 # Copied from https://github.com/zsh-users/zsh-history-substring-search/tree/47a7d416c652a109f6e8856081abc042b50125f4#usage
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
 
 # Word style: directory delimiter
 # http://stackoverflow.com/a/1438523
@@ -85,11 +81,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' format '%B---- %d%b'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-source `brew --prefix`/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source `brew --prefix`/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
 # project level exports
 [ -f ~/project-exports.sh ] && source ~/project-exports.sh

@@ -40,10 +40,12 @@ brew install ripgrep
 
 # Install useful binaries.
 brew install ack
+brew install antibody
 brew install autojump
 brew install docker
 brew install docker-machine
 brew install ffmpeg
+brew install fzf
 brew install git
 brew install git-lfs
 brew install gh
@@ -60,7 +62,6 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install youtube-dl
-
 brew install bat
 brew install prettyping
 brew install ncdu
@@ -74,9 +75,9 @@ brew cask install alfred
 # brew cask install beamer
 brew cask install dash
 brew cask install dropbox
-# brew cask install homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
-brew cask install google-chrome #Chrome
-# brew cask install iterm2
+brew cask install homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
+brew cask install google-chrome # Chrome
+brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
 # brew cask install sketch
@@ -87,7 +88,6 @@ brew cask install slack
 # brew cask install textexpander
 # brew cask install tower
 brew cask install virtualbox
-# brew cask install wechat
 
 # Remove outdated versions from the cellar.
 brew cleanup
