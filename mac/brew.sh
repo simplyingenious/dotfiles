@@ -81,6 +81,7 @@ brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
 # brew cask install sketch
+brew cask install onlyoffice
 brew cask install skitch
 brew cask install skype
 brew cask install slack
