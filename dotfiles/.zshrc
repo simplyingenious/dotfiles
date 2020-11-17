@@ -1,6 +1,15 @@
+fpath=(/usr/local/share/zsh/functions $fpath)
+
+# Initialize Pure Prompt
+# https://github.com/sindresorhus/pure
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
+
+# Initialize Completion System
+# https://zsh.sourceforge.net/Doc/Release/Completion-System.html
+autoload -U compinit
+compinit
 
 unameOut="$(uname -s)"
 case "${unameOut}" in

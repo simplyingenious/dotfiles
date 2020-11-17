@@ -48,7 +48,6 @@ export MANPAGER='less -X';
 export GPG_TTY=$(tty);
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-
 eval "$(rbenv init -)"
 
 # Bind UP and DOWN arrow keys
@@ -61,11 +60,6 @@ bindkey '^[[B' history-substring-search-down
 #
 autoload -U select-word-style
 select-word-style bash
-
-# Completion
-# zsh.sourceforge.net/Doc/Release/Completion-System.html
-autoload -U compinit
-compinit
 
 # case insensitive (all), partial-word and substring completion
 # https://github.com/robbyrussell/oh-my-zsh/blob/e8aba1bf5912f89f408eaebd1bc74c25ba32a62c/lib/completion.zsh#L23

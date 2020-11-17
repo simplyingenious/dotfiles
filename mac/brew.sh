@@ -77,6 +77,7 @@ brew cask install dash
 brew cask install dropbox
 brew cask install homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
 brew cask install google-chrome # Chrome
+brew cask install iina
 brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
