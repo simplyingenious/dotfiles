@@ -68,7 +68,15 @@ brew install ncdu
 brew install tldr
 
 # Installs Casks
-brew tap caskroom/cask
+brew tap homebrew/cask-fonts
+
+# Installs fonts for code
+brew cask install font-cascadia-code
+brew cask install font-cascadia-code-pl
+brew cask install font-iosevka
+brew cask install font-jetbrains-mono
+brew cask install font-recursive
+brew cask install font-victor-mono
 
 ## Apps I use
 brew cask install alfred
