@@ -73,8 +73,13 @@ brew tap homebrew/cask-fonts
 # Installs fonts for code
 brew cask install font-cascadia-code
 brew cask install font-cascadia-code-pl
+brew cask install font-fantasque-sans-mono
+brew cask install font-ibm-plex-mono
 brew cask install font-iosevka
 brew cask install font-jetbrains-mono
+brew cask install font-juliamono
+brew cask install font-lilex
+brew cask install font-nanum-gothic-coding
 brew cask install font-recursive
 brew cask install font-victor-mono
 
