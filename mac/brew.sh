@@ -100,10 +100,9 @@ brew cask install onlyoffice
 brew cask install skitch
 brew cask install skype
 brew cask install slack
-# brew cask install spotify
-# brew cask install textexpander
-# brew cask install tower
+brew cask install textexpander
 brew cask install virtualbox
+brew cask install vnc-viewer
 brew cask install zoomus
 
 # Remove outdated versions from the cellar.
