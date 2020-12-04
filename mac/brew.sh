@@ -53,6 +53,7 @@ brew install gpg
 brew install n
 brew install rbenv
 brew install imagemagick --with-webp
+brew install mas
 brew install p7zip
 brew install pigz
 brew install pv
@@ -71,39 +72,39 @@ brew install tldr
 brew tap homebrew/cask-fonts
 
 # Installs fonts for code
-brew cask install font-cascadia-code
-brew cask install font-cascadia-code-pl
-brew cask install font-fantasque-sans-mono
-brew cask install font-ibm-plex-mono
-brew cask install font-iosevka
-brew cask install font-jetbrains-mono
-brew cask install font-juliamono
-brew cask install font-lilex
-brew cask install font-nanum-gothic-coding
-brew cask install font-recursive
-brew cask install font-victor-mono
+brew install --cask font-cascadia-code
+brew install --cask font-cascadia-code-pl
+brew install --cask font-fantasque-sans-mono
+brew install --cask font-ibm-plex-mono
+brew install --cask font-iosevka
+brew install --cask font-jetbrains-mono
+brew install --cask font-juliamono
+brew install --cask font-lilex
+brew install --cask font-nanum-gothic-coding
+brew install --cask font-recursive
+brew install --cask font-victor-mono
 
 ## Apps I use
-brew cask install alfred
-# brew cask install beamer
-brew cask install dash
-brew cask install dropbox
-brew cask install homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
-brew cask install google-chrome # Chrome
-brew cask install iconset
-brew cask install iina
-brew cask install iterm2
-brew cask install kap
-brew cask install keycastr
-# brew cask install sketch
-brew cask install onlyoffice
-brew cask install skitch
-brew cask install skype
-brew cask install slack
-brew cask install textexpander
-brew cask install virtualbox
-brew cask install vnc-viewer
-brew cask install zoomus
+brew install --cask alfred
+# brew install --cask beamer
+brew install --cask dash
+brew install --cask dropbox
+brew install --cask homebrew/cask-versions/firefox-developer-edition # Firefox Dev Edition
+brew install --cask google-chrome # Chrome
+brew install --cask iconset
+brew install --cask iina
+brew install --cask iterm2
+brew install --cask kap
+brew install --cask keycastr
+# brew install --cask sketch
+brew install --cask onlyoffice
+brew install --cask skitch
+brew install --cask skype
+brew install --cask slack
+brew install --cask textexpander
+brew install --cask virtualbox
+brew install --cask vnc-viewer
+brew install --cask zoomus
 
 # Remove outdated versions from the cellar.
 brew cleanup
