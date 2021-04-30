@@ -47,6 +47,7 @@ brew install docker-machine
 brew install ffmpeg
 brew install fzf
 brew install git
+brew install git-delta
 brew install git-lfs
 brew install gh
 brew install gpg
@@ -54,6 +55,7 @@ brew install n
 brew install rbenv
 brew install imagemagick --with-webp
 brew install mas
+brew install nmap
 brew install p7zip
 brew install pigz
 brew install pv
@@ -98,6 +100,7 @@ brew install --cask kap
 brew install --cask keycastr
 # brew install --cask sketch
 brew install --cask onlyoffice
+brew install --cask rectangle
 brew install --cask skitch
 brew install --cask skype
 brew install --cask slack

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 mas install 1274495053 # Microsoft To Do (2.32)
-mas install 441258766 # Magnet (2.5.0)
-# mas install 409183694 # Keynote (10.3.8)
 mas install 1295203466 # Microsoft Remote Desktop (10.5.0)
 mas install 1470584107 # Dato (2.0.2)
 mas install 1206020918 # Battery Indicator (2.5.0)

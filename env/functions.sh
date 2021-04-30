@@ -185,3 +185,11 @@ function dlm4a () {
 function dlmp4 () {
   youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1
 }
+
+function resetdns() {
+  dscacheutil -flushcache;
+  sudo killall -HUP mDNSResponder
+  sudo killall -9 mDNSResponder mDNSResponderHelper
+  sudo launchctl stop homebrew.mxcl.dnsmasq
+  sudo launchctl start homebrew.mxcl.dnsmasq
+}

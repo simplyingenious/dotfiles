@@ -36,3 +36,5 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
+
+autoload -U +X bashcompinit && bashcompinit
