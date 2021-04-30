@@ -88,6 +88,7 @@ brew install --cask font-victor-mono
 
 ## Apps I use
 brew install --cask alfred
+brew install --cask appcleaner
 # brew install --cask beamer
 brew install --cask dash
 brew install --cask dropbox
