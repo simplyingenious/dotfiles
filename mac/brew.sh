@@ -102,6 +102,7 @@ brew install --cask keycastr
 # brew install --cask sketch
 brew install --cask onlyoffice
 brew install --cask rectangle
+brew install --cask rocket
 brew install --cask skitch
 brew install --cask skype
 brew install --cask slack
