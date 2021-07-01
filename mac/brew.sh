@@ -108,6 +108,7 @@ brew install --cask skype
 brew install --cask slack
 brew install --cask textexpander
 brew install --cask virtualbox
+brew install --cask visual-studio-code
 brew install --cask vnc-viewer
 brew install --cask zoomus
 
