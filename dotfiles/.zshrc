@@ -1,3 +1,4 @@
+USERNAME=whoami
 fpath=(/usr/local/share/zsh/functions $fpath)
 
 # Initialize Pure Prompt
@@ -24,13 +25,13 @@ export MACHINE
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT='/mnt/c/Users/salmanjaved/dotfiles'
+  PROJECT_ROOT="/mnt/c/Users/`echo $USERNAME`/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
-  PROJECT_ROOT='/Users/salmanjaved/dotfiles'
+  PROJECT_ROOT="/Users/`echo $USERNAME`/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports.sh"

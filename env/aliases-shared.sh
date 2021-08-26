@@ -22,13 +22,13 @@ else
 fi
 
 # List all files colorized in long format
-alias l="ls -lF ${colorflag}"
+alias l="ls -hlF ${colorflag}"
 
 # List all files colorized in long format, excluding . and ..
-alias la="ls -lAF ${colorflag}"
+alias la="ls -hAlF ${colorflag}"
 
 # List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+alias lsd="ls -hlF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
@@ -106,7 +106,6 @@ alias gdt="git difftool"
 alias gs="git status -s"
 alias squish='git commit -v -a --amend -C HEAD'
 
-alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias dm='docker-machine'
 
 # CLI Improved
