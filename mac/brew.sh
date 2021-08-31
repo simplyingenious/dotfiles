@@ -62,6 +62,7 @@ brew install pv
 brew install rsync
 brew install rename
 brew install ssh-copy-id
+brew install tmux
 brew install tree
 brew install vbindiff
 brew install youtube-dl
