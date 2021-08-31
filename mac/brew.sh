@@ -110,7 +110,7 @@ brew install --cask textexpander
 brew install --cask virtualbox
 brew install --cask visual-studio-code
 brew install --cask vnc-viewer
-brew install --cask zoomus
+brew install --cask zoom
 
 # Remove outdated versions from the cellar.
 brew cleanup
