@@ -108,7 +108,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
-	tool = bc3
+	tool = vscode
 
 [difftool]
     prompt = false
@@ -127,7 +127,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-	tool = bc3
+	tool = vscode
 
 [push]
 
@@ -185,3 +185,7 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-style = omit
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
