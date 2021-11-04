@@ -44,6 +44,7 @@ brew install antibody
 brew install autojump
 brew install docker
 brew install docker-machine
+brew install exa
 brew install ffmpeg
 brew install fzf
 brew install git
@@ -70,6 +71,7 @@ brew install bat
 brew install prettyping
 brew install ncdu
 brew install tldr
+brew install zopfli
 
 # Installs Casks
 brew tap homebrew/cask-fonts
@@ -104,10 +106,10 @@ brew install --cask keycastr
 brew install --cask onlyoffice
 brew install --cask rectangle
 brew install --cask rocket
-brew install --cask skitch
+# brew install --cask skitch
 brew install --cask skype
 brew install --cask slack
-brew install --cask textexpander
+# brew install --cask textexpander
 brew install --cask virtualbox
 brew install --cask visual-studio-code
 brew install --cask vnc-viewer
