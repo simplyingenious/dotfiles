@@ -2,6 +2,7 @@
 
 # Install Homebrew (if not installed)
 echo "Installing Homebrew."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -74,6 +75,7 @@ brew install tldr
 brew install zopfli
 
 # Installs Casks
+brew tap homebrew/cask
 brew tap homebrew/cask-fonts
 
 # Installs fonts for code
@@ -102,7 +104,6 @@ brew install --cask iina
 brew install --cask iterm2
 brew install --cask kap
 brew install --cask keycastr
-# brew install --cask sketch
 brew install --cask onlyoffice
 brew install --cask rectangle
 brew install --cask rocket

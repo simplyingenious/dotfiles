@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change this value your custom location
-CLONE_PATH='projects'
+CLONE_PATH='code'
 
 function clone () {
 	# CD to folder where git repos are kept
@@ -10,26 +10,18 @@ function clone () {
   echo "Cloning repositories"
 
   # Open source projects
-	git clone git@github.com:zellwk/mappy-breakpoints.git
-	git clone git@github.com:zellwk/typi.git
-	git clone git@github.com:zellwk/zl-fetch.git
-  git clone git@github.com:zellwk/css-reset.git
-
-  # Blog
-	git clone git@github.com:zellwk/zellwk.com.git
-
-  # Products
-  git clone git@github.com:zellwk/students.zellwk.com.git
-
-	git clone git@github.com:zellwk/learnjavascript.today.git
-  git clone git@github.com:zellwk/learn-js-starter-pack.git
-  git clone git@github.com:zellwk/Learnjavascript-api.git
-	git clone git@github.com:zellwk/jsf.git
-
-  git clone git@github.com:zellwk/ayw.git ayw-website
-  git clone git@gitlab.com:zellwk/automating-your-workflow-book.git ayw-book
-
-  git clone git@gitlab.com:zellwk/mrt-salespage.git
+	git clone git@github.com:SectorLabs/crm-classified-admin.git
+	git clone git@github.com:SectorLabs/inspection-pro-admin.git
+  git clone git@github.com:SectorLabs/inspection-pro-backend.git
+	git clone git@github.com:SectorLabs/lamudi-nextjs.git
+  git clone git@github.com:simplyingenious/nextjs-blog.git
+  git clone git@github.com:simplyingenious/nextjs-ui-components.git
+	git clone git@github.com:SectorLabs/olx-ecommerce.git
+  git clone git@github.com:SectorLabs/olx-mall-nextjs.git
+	git clone git@github.com:SectorLabs/olx-motors-nextjs.git
+  git clone git@github.com:SectorLabs/zameen-discourse.git
+  git clone git@github.com:SectorLabs/zameen-discourse-theme.git
+	git clone git@github.com:SectorLabs/zameen_nextjs.git zameen-nextjs
 }
 
 clone
