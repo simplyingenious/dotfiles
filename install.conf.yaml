@@ -6,8 +6,8 @@
 - clean: ['~']
 
 - link:
-  ~/.editorconfig: editorconfig
-  ~/.eslintrc.js:
-  ~/.gitconfig:
-  ~/.gitignore:
-  ~/.zshrc:
+    ~/.editorconfig:
+    ~/.eslintrc.js:
+    ~/.gitconfig:
+    ~/.gitignore:
+    ~/.zshrc:
