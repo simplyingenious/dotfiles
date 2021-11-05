@@ -3,9 +3,6 @@
 # Install apps and binaries with Brew
 source mac/brew.sh
 
-# Install mac apps from the appstore using appstore cli (mas)
-source mac/mas.sh
-
 # Set npm permissions and install global binaries
 source shared/npm.sh
 

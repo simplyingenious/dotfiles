@@ -11,3 +11,6 @@
     ~/.gitconfig:
     ~/.gitignore:
     ~/.zshrc:
+
+- shell:
+    - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
