@@ -7,12 +7,28 @@
       include: ['tap', 'brew', 'cask', 'mas']
 
 - shell:
-    - ["/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"", "Installing Homebrew."]
+    -
+      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Installing Homebrew.
+      stdin: true
+      stdout: true
+      stderr: true
+    - git submodule update --init --recursive
     - ["brew update", "Get the latest from homebrew."]
+    - ["brew install git", "Installing Git"]
+    - brew link git
     - ["brew upgrade", "Upgrade any already-installed formulae."]
 
 - brewfile:
     file: mac/Brewfile
+
+- shell:
+    - brew cleanup 
+    - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
+    - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
+    - ["n lts", "Install latest Node LTS release"]
+    - ["npm i -g npm", "Upgrade NPM to latest version"]
+    - ["./shared/npm.sh", "Install global pkgs from npm"]
 
 - clean: ['~']
 
@@ -22,12 +38,3 @@
     ~/.gitconfig:
     ~/.gitignore:
     ~/.zshrc:
-
-- shell:
-    - brew cleanup
-    - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
-    - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
-    - ["n lts", "Install latest Node LTS release"]
-    - ["npm i -g npm", "Upgrade NPM to latest version"]
-    - ["sh shared/npm.sh", "Install global pkgs from npm"]
-
