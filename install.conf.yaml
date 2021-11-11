@@ -1,0 +1,54 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+    brewfile:
+      stdout: true
+      include: ['tap', 'brew', 'cask', 'mas']
+
+- shell:
+    -
+      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      description: Installing Homebrew.
+      stdin: true
+      stdout: true
+      stderr: true
+    - ["sudo chown -R $USER:$(id -gn $USER) /usr/local/", "Setting up permissions."]
+    - ["brew update", "Get the latest from homebrew."]
+    - ["brew install git", "Installing Git"]
+    - brew link git
+    - git submodule update --init --recursive
+    - ["brew install coreutils", "Installing latest and greatest gnu utils."]
+    - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
+    -
+      command: brew upgrade
+      description: Upgrade any already-installed formulae.
+      stdout: true
+
+- brewfile:
+    file: mac/Brewfile
+
+- shell:
+    - ["brew cleanup", "Cleaning brew artifacts."]
+    - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
+    - ["n lts", "Install latest Node LTS release"]
+    - ["npm i -g npm", "Upgrade NPM to latest version"]
+    - ["./shared/npm.sh", "Install global pkgs from npm"]
+
+- clean: ['~']
+
+- link:
+    ~/.editorconfig:
+    ~/.eslintrc.js:
+    ~/.gitconfig:
+    ~/.gitignore:
+    ~/.zshrc:
+
+- shell:
+    -
+      command: gh auth login
+      stdin: true
+      stdout: true
+      stderr: true
+    - gh extension install davidraviv/gh-clean-branches
+    - ["./mac/set-defaults.sh", "Setting up Mac OS defaults"]

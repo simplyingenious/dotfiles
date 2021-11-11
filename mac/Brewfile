@@ -1,0 +1,115 @@
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew "coreutils"
+# Install some other useful utilities like `sponge`.
+brew "moreutils"
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+brew "findutils"
+# Install GNU `sed` as gsed
+brew "gnu-sed"
+# Install `wget` with IRI support.
+brew "wget"
+
+brew "gmp"
+brew "grep"
+brew "ripgrep"
+
+# Install useful binaries.
+brew "ack"
+brew "antibody"
+brew "autojump"
+brew "docker"
+brew "docker-machine"
+brew "exa"
+brew "ffmpeg"
+brew "fzf"
+brew "git"
+brew "git-delta"
+brew "git-lfs"
+brew "gh"
+brew "gpg"
+brew "n"
+brew "rbenv"
+brew "imagemagick" args: ["with-webp"]
+brew "mas"
+brew "nmap"
+brew "p7zip"
+brew "pigz"
+brew "pv"
+brew "rsync"
+brew "rename"
+brew "ssh-copy-id"
+brew "tmux"
+brew "tree"
+brew "vbindiff"
+brew "youtube-dl"
+brew "bat"
+brew "prettyping"
+brew "ncdu"
+brew "tldr"
+brew "zopfli"
+
+
+# coding fonts
+cask "font-cascadia-code"
+cask "font-cascadia-code-pl"
+cask "font-fantasque-sans-mono"
+cask "font-ibm-plex-mono"
+cask "font-iosevka"
+cask "font-jetbrains-mono"
+cask "font-juliamono"
+cask "font-lilex"
+cask "font-nanum-gothic-coding"
+cask "font-recursive"
+cask "font-victor-mono"
+
+
+## Apps I use
+cask "alfred"
+cask "appcleaner"
+# cask "beamer"
+cask "dash"
+cask "dropbox"
+cask "homebrew/cask-versions/firefox-developer-edition" # Firefox Dev Edition
+cask "google-chrome" # Chrome
+cask "iconset"
+cask "iina"
+cask "iterm2"
+cask "kap"
+cask "keycastr"
+cask "onlyoffice"
+cask "rectangle"
+cask "rocket"
+# cask "skitch"
+cask "skype"
+cask "slack"
+# cask "textexpander"
+cask "virtualbox"
+cask "visual-studio-code"
+cask "vnc-viewer"
+cask "zoom"
+
+
+# mas
+mas "Microsoft To Do", id: 1274495053
+# mas "Xcode", id: 497799835
+mas "Keynote", id: 409183694
+mas "Battery Indicator", id: 1206020918
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Dato", id: 1470584107
+mas "Sequel Ace", id: 1518036000
+mas "Microsoft OneNote", id: 784801555
+mas "Hidden Bar", id: 1452453066
+mas "WhatFont", id: 1437138382
+mas "Unsplash Wallpapers", id: 1284863847
+mas "Slack", id: 803453959
+mas "Pandan", id: 1569600264
+mas "Color Picker", id: 1545870783
+mas "Telegram", id: 747648890
+mas "Bitwarden", id: 1352778147
+mas "Lungo", id: 1263070803
+mas "Disconnect Premium", id: 1333277187
+mas "Spark", id: 1176895641

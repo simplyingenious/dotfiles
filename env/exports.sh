@@ -48,7 +48,7 @@ export MANPAGER='less -X';
 export GPG_TTY=$(tty);
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 eval "$(rbenv init -)"
 
 # Bind UP and DOWN arrow keys
