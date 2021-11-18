@@ -75,8 +75,8 @@ zstyle ':completion:*' group-name ''
 # Format group names
 zstyle ':completion:*' format '%B---- %d%b'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
 # project level exports
-[ -f ~/project-exports.sh ] && source ~/project-exports.sh
+[ -f $HOME/project-exports.sh ] && source $HOME/project-exports.sh
