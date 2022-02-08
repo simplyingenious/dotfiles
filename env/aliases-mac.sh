@@ -52,12 +52,12 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias show="defaults write com.apple.finder AppleShowAllFiles true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles false && killall Finder"
 
 # Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"

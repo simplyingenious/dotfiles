@@ -2,6 +2,9 @@
 
 source $HOME/.zsh-plugins.sh
 
+# Set Visual Studio Code as the default editor
+export EDITOR="code -w"
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.
