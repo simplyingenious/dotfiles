@@ -88,6 +88,10 @@ alias rs="npm run server"
 alias rt="npm run test"
 alias rw="npm run test:watch"
 
+# yarn run aliases
+alias yd="yarn dev"
+alias ys="yarn start"
+
 # Aliases for globally installed npm modules
 alias t=trash
 alias ncu="npm-check -u"
