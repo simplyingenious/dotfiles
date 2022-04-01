@@ -4,10 +4,8 @@
 alias ~="cd ~" # `cd` is probably faster to type though
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -52,8 +50,8 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles false && killall Finder"
+alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles true && killall Finder"
+alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles false && killall Finder"
 
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"

@@ -18,8 +18,8 @@ export PYTHONIOENCODING='UTF-8';
 # History
 # https://kevinjalbert.com/more-shell-history/
 # https://unix.stackexchange.com/a/273863
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
+# Increase Bash history size. Allow 32^4 entries; the default is 500.
+export HISTSIZE='1048576';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
@@ -51,7 +51,10 @@ export MANPAGER='less -X';
 export GPG_TTY=$(tty);
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export PATH="$HOME/.rbenv/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+# Setting PATH
+export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
+export PATH="`python3 -m site --user-base`/bin:$PATH"
 eval "$(rbenv init -)"
 
 # Bind UP and DOWN arrow keys
