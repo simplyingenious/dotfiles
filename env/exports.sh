@@ -86,3 +86,5 @@ zstyle ':completion:*' format '%B---- %d%b'
 
 # project level exports
 [ -f $HOME/project-exports.sh ] && source $HOME/project-exports.sh
+
+source $HOME/.config/broot/launcher/bash/br
