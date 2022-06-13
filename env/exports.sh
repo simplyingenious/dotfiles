@@ -55,7 +55,12 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Setting PATH
 export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
-eval "$(rbenv init -)"
+
+# ruby version manager
+eval "$(frum init)"
+
+# fast node manager
+eval "$(fnm env --use-on-cd)"
 
 # Bind UP and DOWN arrow keys
 # Copied from https://github.com/zsh-users/zsh-history-substring-search/tree/47a7d416c652a109f6e8856081abc042b50125f4#usage
