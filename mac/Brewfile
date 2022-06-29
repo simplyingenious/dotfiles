@@ -59,6 +59,7 @@ brew "the_silver_searcher" # ag, ack but faster
 # brew "tldr"
 brew "tmux"
 brew "tree"
+brew "unbound"
 brew "vbindiff"
 brew "youtube-dl"
 brew "zopfli"

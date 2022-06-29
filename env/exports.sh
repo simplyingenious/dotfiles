@@ -55,6 +55,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # Setting PATH
 export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
+export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 
 # ruby version manager
 eval "$(frum init)"
