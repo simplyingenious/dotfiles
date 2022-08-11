@@ -9,8 +9,7 @@ prompt pure
 
 # Initialize Completion System
 # https://zsh.sourceforge.net/Doc/Release/Completion-System.html
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
 
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -37,8 +36,6 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
-
-autoload -U +X bashcompinit && bashcompinit
 
 # bun completions
 [ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"

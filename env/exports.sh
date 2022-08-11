@@ -50,8 +50,6 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
 # ruby version manager
 eval "$(frum init)"
 
@@ -63,16 +61,15 @@ eval "$(fnm env --use-on-cd)"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# Word style: directory delimiter
-# http://stackoverflow.com/a/1438523
-#
-autoload -U select-word-style
-select-word-style bash
+# # Word style: directory delimiter
+# # http://stackoverflow.com/a/1438523
+# #
+# autoload -U select-word-style
+# select-word-style bash
 
 # case insensitive (all), partial-word and substring completion
 # https://github.com/robbyrussell/oh-my-zsh/blob/e8aba1bf5912f89f408eaebd1bc74c25ba32a62c/lib/completion.zsh#L23
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-
 # Menu selection
 # http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
 # Highlight
@@ -90,16 +87,13 @@ zstyle ':completion:*' format '%B---- %d%b'
 
 source $HOME/.config/broot/launcher/bash/br
 
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# Setting PATHs
+# export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
+export PATH="`python3 -m site --user-base`/bin:$PATH"
+export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
-
-# Setting PATHs
-export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
-export PATH="`python3 -m site --user-base`/bin:$PATH"
-export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # antidote
