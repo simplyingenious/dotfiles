@@ -39,3 +39,6 @@ elif [[ "$MACHINE" == "Mac" ]]; then
 fi
 
 autoload -U +X bashcompinit && bashcompinit
+
+# bun completions
+[ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"

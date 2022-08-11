@@ -20,6 +20,7 @@
     - git submodule update --init --recursive
     - ["brew install coreutils", "Installing latest and greatest gnu utils."]
     - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
+    - ["git clone https://github.com/mattmc3/antidote.git ~/.antidote", "Cloning antidote"]
     -
       command: brew upgrade
       description: Upgrade any already-installed formulae.
@@ -30,7 +31,7 @@
 
 - shell:
     - ["brew cleanup", "Cleaning brew artifacts."]
-    - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
+    # - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
     - ["fnm install --lts", "Install latest Node LTS release"]
     - ["npm i -g npm", "Upgrade NPM to latest version"]
     - ["./shared/npm.sh", "Install global pkgs from npm"]

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source $HOME/.zsh-plugins.sh
+# source $HOME/.zsh-plugins.sh
 
 # Set Visual Studio Code as the default editor
 export EDITOR="code -w"
@@ -101,3 +101,23 @@ export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
 export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# antidote
+# clone antidote if necessary and generate a static plugin file
+zhome=${ZDOTDIR:-$HOME}
+if [[ ! $zhome/.zsh_plugins.zsh -nt $zhome/.zsh_plugins.txt ]]; then
+  [[ -e $zhome/.antidote ]] \
+    || git clone --depth=1 https://github.com/mattmc3/antidote.git $zhome/.antidote
+  # [[ -e $zhome/.zsh_plugins.txt ]] || touch $zhome/.zsh_plugins.txt
+  (
+    source $zhome/.antidote/antidote.zsh
+    antidote bundle < $zhome/dotfiles/env/.zsh-plugins.txt > $zhome/.zsh-plugins.zsh
+  )
+fi
+
+# uncomment if you want your session to have commands like `antidote update`
+autoload -Uz $zhome/.antidote/functions/antidote
+
+# source static plugins file
+source $zhome/.zsh-plugins.zsh
+unset zhome
