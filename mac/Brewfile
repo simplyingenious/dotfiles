@@ -60,7 +60,7 @@ brew "tmux"
 brew "tree"
 brew "unbound"
 brew "vbindiff"
-brew "youtube-dl"
+brew "yt-dlp"
 brew "zopfli"
 brew "zoxide"
 

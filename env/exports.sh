@@ -91,6 +91,8 @@ source $HOME/.config/broot/launcher/bash/br
 # export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
 export PATH="`python3 -m site --user-base`/bin:$PATH"
 export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"

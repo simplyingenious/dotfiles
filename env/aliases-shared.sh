@@ -92,6 +92,10 @@ alias rw="npm run test:watch"
 alias yd="yarn dev"
 alias ys="yarn start"
 
+# bun run aliases
+alias bd="bun run dev"
+alias bs="bun run start"
+
 # Aliases for globally installed npm modules
 alias t=trash
 alias ncu="npm-check -u"
