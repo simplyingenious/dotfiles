@@ -19,7 +19,7 @@ brew "ripgrep"
 
 # Install useful binaries.
 brew "ack"
-brew "autojump"
+# brew "autojump"
 brew "bat"
 brew "broot"
 brew "docker-machine"

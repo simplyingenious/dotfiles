@@ -80,7 +80,8 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' format '%B---- %d%b'
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+eval "$(zoxide init zsh)"
 
 # project level exports
 [ -f $HOME/project-exports.sh ] && source $HOME/project-exports.sh
