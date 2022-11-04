@@ -39,3 +39,5 @@ fi
 
 # bun completions
 [ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
