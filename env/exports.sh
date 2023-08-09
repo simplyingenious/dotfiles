@@ -113,7 +113,6 @@ zhome=${ZDOTDIR:-$HOME}
 if [[ ! $zhome/.zsh_plugins.zsh -nt $zhome/.zsh_plugins.txt ]]; then
   [[ -e $zhome/.antidote ]] \
     || git clone --depth=1 https://github.com/mattmc3/antidote.git $zhome/.antidote
-  # [[ -e $zhome/.zsh_plugins.txt ]] || touch $zhome/.zsh_plugins.txt
   (
     source $zhome/.antidote/antidote.zsh
     antidote bundle < $zhome/dotfiles/env/.zsh-plugins.txt > $zhome/.zsh-plugins.zsh

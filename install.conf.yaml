@@ -8,6 +8,12 @@
 
 - shell:
     -
+      command: /bin/bash -c "$(curl https://sh.rustup.rs -sSf | sh)"
+      description: Installing Rustup and Cargo.
+      stdin: true
+      stdout: true
+      stderr: true
+    -
       command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       description: Installing Homebrew.
       stdin: true
@@ -31,7 +37,6 @@
 
 - shell:
     - ["brew cleanup", "Cleaning brew artifacts."]
-    # - ["antibody bundle < env/.zsh-plugins.txt > $HOME/.zsh-plugins.sh", "ZSH plugins using antibody static"]
     - ["fnm install --lts", "Install latest Node LTS release"]
     - ["npm i -g npm", "Upgrade NPM to latest version"]
     - ["./shared/npm.sh", "Install global pkgs from npm"]
