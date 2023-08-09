@@ -50,7 +50,7 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-# ruby version manager
+# fast ruby version manager
 eval "$(frum init)"
 
 # fast node manager
@@ -80,11 +80,16 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' format '%B---- %d%b'
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-# [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+
+# good alternative to `cd`
 eval "$(zoxide init zsh)"
 
-# project level exports
-[ -f $HOME/project-exports.sh ] && source $HOME/project-exports.sh
+# Load .env file
+if [[ -f .env ]]; then
+  set -a
+  source .env
+  set +a
+fi
 
 source $HOME/.config/broot/launcher/bash/br
 
@@ -98,6 +103,9 @@ export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"
 
 # antidote
 # clone antidote if necessary and generate a static plugin file
@@ -118,3 +126,6 @@ autoload -Uz $zhome/.antidote/functions/antidote
 # source static plugins file
 source $zhome/.zsh-plugins.zsh
 unset zhome
+
+# initialize starship prompt
+eval "$(starship init zsh)"

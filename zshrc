@@ -1,12 +1,6 @@
 USERNAME=whoami
 fpath=(/usr/local/share/zsh/functions $fpath)
 
-# Initialize Pure Prompt
-# https://github.com/sindresorhus/pure
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
-
 # Initialize Completion System
 # https://zsh.sourceforge.net/Doc/Release/Completion-System.html
 autoload -U compinit; compinit
@@ -37,7 +31,3 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/functions.sh"
 fi
 
-# bun completions
-[ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
