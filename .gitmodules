@@ -6,3 +6,9 @@
 	path = dotbot-brewfile
 	url = https://github.com/sobolevn/dotbot-brewfile.git
 	ignore = dirty
+[submodule "dotbot-rust"]
+	path = dotbot-rust
+	url = https://github.com/alexcormier/dotbot-rust
+[submodule "dotbot-ghq"]
+	path = dotbot-ghq
+	url = https://github.com/klane/dotbot-ghq.git

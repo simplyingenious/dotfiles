@@ -13,6 +13,7 @@
       stdin: true
       stdout: true
       stderr: true
+    - rustup update
     -
       command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       description: Installing Homebrew.
@@ -24,7 +25,7 @@
     - ["brew install git", "Installing Git"]
     - brew link git
     - git submodule update --init --recursive
-    - ["brew install coreutils", "Installing latest and greatest gnu utils."]
+    # - ["brew install coreutils", "Installing latest and greatest gnu utils."]
     - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
     - ["git clone https://github.com/mattmc3/antidote.git ~/.antidote", "Cloning antidote"]
     -
@@ -34,6 +35,19 @@
 
 - brewfile:
     file: mac/Brewfile
+
+- cargo:
+    - cargo-update
+    - basic-http-server
+    - cargo-wipe
+    - coreutils
+    - git-delete
+    - git-fork
+    - git-push2
+    - git-try-merge
+    - node-prune
+    - polykill
+    - zellij
 
 - shell:
     - ["brew cleanup", "Cleaning brew artifacts."]
@@ -48,6 +62,7 @@
     ~/.eslintrc.js:
     ~/.gitconfig:
     ~/.gitignore:
+    ~/.zshenv:
     ~/.zshrc:
 
 - shell:
