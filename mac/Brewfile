@@ -34,7 +34,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "git-lfs"
-brew "gpg"
+# brew "gpg"
 brew "imagemagick" args: ["with-webp"]
 brew "mas"
 brew "miniserve"
@@ -53,7 +53,6 @@ brew "rustscan"
 brew "scdoc"
 brew "sd"
 brew "ssh-copy-id"
-brew "starship"
 brew "starship"
 brew "tealdeer"
 brew "telnet"
@@ -85,51 +84,67 @@ cask "font-monocraft"
 cask "font-nanum-gothic-coding"
 cask "font-recursive"
 cask "font-victor-mono"
+cask "font-fairfax"
 
 
 ## Apps I use
 cask "appcleaner"
 cask "dash"
-cask "dropbox"
 cask "google-chrome" # Chrome
 cask "homebrew/cask-versions/firefox-developer-edition" # Firefox Dev Edition
 cask "iconset"
 cask "iina"
-cask "iterm2"
-cask "kap"
-cask "keycastr"
+# cask "keycastr"
 cask "neovide"
 cask "onlyoffice"
 cask "plex-media-server"
+cask "polypane"
 cask "raycast"
 cask "rectangle"
 cask "rocket"
 cask "shottr"
-cask "skype"
+# cask "skype"
 cask "slack"
-cask "virtualbox"
+# cask "virtualbox"
 cask "visual-studio-code"
 cask "vnc-viewer"
 cask "zoom"
+cask "betterzip"
 
 
 # mas
 # mas "Microsoft To Do", id: 1274495053
 # mas "Xcode", id: 497799835
 # mas "Keynote", id: 409183694
-mas "Battery Indicator", id: 1206020918
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Dato", id: 1470584107
-mas "Sequel Ace", id: 1518036000
-mas "Microsoft OneNote", id: 784801555
-mas "Hidden Bar", id: 1452453066
-mas "WhatFont", id: 1437138382
-mas "Unsplash Wallpapers", id: 1284863847
-mas "Slack", id: 803453959
-mas "Pandan", id: 1569600264
-mas "Color Picker", id: 1545870783
-mas "Telegram", id: 747648890
-mas "Bitwarden", id: 1352778147
-mas "Lungo", id: 1263070803
-mas "Disconnect Premium", id: 1333277187
 # mas "Spark", id: 1176895641
+mas "iStat Menus", id: 1319778037
+mas "Velja"                       , id: 1607635845
+mas "Unsplash Wallpapers"         , id: 71284863847
+# mas "Keynote"                     , id: 409183694
+mas "WhatFont"                    , id: 1437138382
+# mas "Microsoft OneNote"           , id: 784801555
+mas "Color Picker"                , id: 1545870783
+mas "Telegram"                    , id: 747648890
+mas "Dato"                        , id: 1470584107
+mas "Battery Indicator"           , id: 1206020918
+mas "Disconnect Premium"          , id: 1333277187
+mas "Canary Mail"                 , id: 1236045954
+mas "WireGuard"                   , id: 1451685025
+mas "Bitwarden"                   , id: 1352778147
+mas "Xcode"                       , id: 497799835
+mas "WhatsApp"                    , id: 1147396723
+mas "Shareful"                    , id: 1522267256
+mas "Camera Preview"              , id: 1632827132
+mas "Tailscale"                   , id: 1475387142
+mas "ipTV"                        , id: 1525121231
+mas "Microsoft Remote Desktop"    , id: 1295203466
+mas "Microsoft To Do"             , id: 1274495053
+mas "AdGuard for Safari"          , id: 1440147259
+mas "Actions"                     , id: 1586435171
+mas "Pandan"                      , id: 1569600264
+mas "Sequel Ace"                  , id: 1518036000
+mas "Lungo"                       , id: 1263070803
+mas "PiPifier"                    , id: 1160374471
+mas "Slack"                       , id: 803453959
+mas "Hidden Bar"                  , id: 1452453066
+mas "DaisyDisk"                   , id: 411643860
