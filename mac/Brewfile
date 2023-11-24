@@ -110,6 +110,7 @@ cask "visual-studio-code"
 cask "vnc-viewer"
 cask "zoom"
 cask "betterzip"
+cask "sharemouse"
 
 
 # mas
