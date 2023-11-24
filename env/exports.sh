@@ -99,6 +99,9 @@ export PATH="`python3 -m site --user-base`/bin:$PATH"
 export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"

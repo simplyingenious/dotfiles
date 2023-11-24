@@ -44,6 +44,7 @@ brew "nmap"
 brew "p7zip"
 brew "pigz"
 brew "prettyping"
+brew "pyenv"
 brew "pv"
 brew "rename"
 brew "rm-improved"
@@ -78,6 +79,9 @@ cask "font-iosevka"
 cask "font-jetbrains-mono"
 cask "font-juliamono"
 cask "font-lilex"
+cask "font-cozette"
+cask "font-maple"
+cask "font-monocraft"
 cask "font-nanum-gothic-coding"
 cask "font-recursive"
 cask "font-victor-mono"
@@ -110,9 +114,9 @@ cask "zoom"
 
 
 # mas
-mas "Microsoft To Do", id: 1274495053
+# mas "Microsoft To Do", id: 1274495053
 # mas "Xcode", id: 497799835
-mas "Keynote", id: 409183694
+# mas "Keynote", id: 409183694
 mas "Battery Indicator", id: 1206020918
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Dato", id: 1470584107

@@ -9,3 +9,4 @@ npm i -g npm-check
 npm i -g standard
 npm i -g svgo
 npm i -g trash-cli
+npm i -g yarn

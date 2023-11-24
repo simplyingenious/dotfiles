@@ -121,3 +121,6 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
+
+# Neovim
+alias nv=neovide
