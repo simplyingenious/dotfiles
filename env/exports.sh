@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-
+#!/usr/bin/env zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # source $HOME/.zsh-plugins.sh
 
 # Set Visual Studio Code as the default editor
@@ -94,10 +94,10 @@ fi
 source $HOME/.config/broot/launcher/bash/br
 
 # Setting PATHs
-# export PATH="$HOME/.rbenv/bin:`brew --prefix coreutils`/libexec/gnubin:$PATH"
-export PATH="`python3 -m site --user-base`/bin:$PATH"
-export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
+# export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
+# export PATH="`brew --prefix`/opt/unbound/sbin:$PATH"
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/node_modules/.bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

@@ -143,8 +143,13 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled false
 # 1 => 15ms
 # 10 => 150ms
 # https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
-defaults write NSGlobalDomain KeyRepeat 1.8
-defaults write NSGlobalDomain InitialKeyRepeat 12
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 13
+
+# disable ctrl+space <C-Space> shortcuts to switch input sources
+# disable quick switch input sources hotkeys
+defaults write ~/Library/Preferences/com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "{enabled = 0; value = { parameters = (); type = ''; }; }"
+defaults write ~/Library/Preferences/com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "{enabled = 0; value = { parameters = (); type = ''; }; }"
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -161,7 +166,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu tru
 sudo systemsetup -settimezone "Asia/Karachi" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
 # Screen                                                                      #
@@ -359,7 +364,7 @@ defaults write com.apple.dock autohide-delay -float 0
 # defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
-# defaults write com.apple.dock autohide true
+defaults write com.apple.dock autohide true
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden true

@@ -20,7 +20,7 @@
       stdin: true
       stdout: true
       stderr: true
-    - ["sudo chown -R $USER:$(id -gn $USER) /usr/local/", "Setting up permissions."]
+    - ["sudo chown -R $USER:$(id -gn $USER) /opt/homebrew/", "Setting up permissions."]
     - ["brew update", "Get the latest from homebrew."]
     - ["brew install git", "Installing Git"]
     - brew link git
@@ -42,16 +42,20 @@
     - basic-http-server
     - cargo-wipe
     - coreutils
-    - git-delete
-    - git-fork
-    - git-push2
-    - git-try-merge
+#    - git-delete
+#    - git-fork
+#    - git-push2
+#    - git-try-merge
     - node-prune
     - polykill
     - zellij
 
 - shell:
     - ["brew cleanup", "Cleaning brew artifacts."]
+    -
+      command: $(brew --prefix)/opt/fzf/install --no-update-rc --no-bash --no-fish
+      description: setup fuzzy finder for the shell
+      stdout: true
     - ["fnm install --lts", "Install latest Node LTS release"]
     - ["npm i -g npm", "Upgrade NPM to latest version"]
     - ["./shared/npm.sh", "Install global pkgs from npm"]

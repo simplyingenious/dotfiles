@@ -1,11 +1,11 @@
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
+# tap "homebrew/cask"
+# tap "homebrew/cask-fonts"
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew "coreutils"
 # Install some other useful utilities like `sponge`.
-brew "moreutils"
+# brew "moreutils"
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew "findutils"
 # Install GNU `sed` as gsed
@@ -20,13 +20,13 @@ brew "ripgrep"
 # Install useful binaries.
 brew "ack"
 brew "bat"
-brew "broot"
+# brew "broot"
 brew "docker"
 brew "docker-machine"
 brew "dust"
 brew "exa"
 brew "fd"
-brew "ffmpeg"
+# brew "ffmpeg"
 brew "fnm"
 brew "frum"
 brew "fzf"
@@ -35,7 +35,7 @@ brew "git"
 brew "git-delta"
 brew "git-lfs"
 # brew "gpg"
-brew "imagemagick" args: ["with-webp"]
+# brew "imagemagick", args: ["with-webp"]
 brew "mas"
 brew "miniserve"
 brew "mono"
@@ -65,9 +65,11 @@ brew "vbindiff"
 brew "yt-dlp"
 brew "zopfli"
 brew "zoxide"
+brew "caddy"
+brew "parallel"
 
 
-# coding fonts
+# programming fonts
 cask "font-cascadia-code"
 cask "font-cascadia-code-pl"
 cask "font-caskaydia-cove-nerd-font"
@@ -110,17 +112,15 @@ cask "visual-studio-code"
 cask "vnc-viewer"
 cask "zoom"
 cask "betterzip"
-cask "sharemouse"
 
 
 # mas
 # mas "Microsoft To Do", id: 1274495053
 # mas "Xcode", id: 497799835
 # mas "Keynote", id: 409183694
-# mas "Spark", id: 1176895641
-mas "iStat Menus", id: 1319778037
+# mas "iStat Menus", id: 1319778037
 mas "Velja"                       , id: 1607635845
-mas "Unsplash Wallpapers"         , id: 71284863847
+mas "Unsplash Wallpapers"         , id: 1284863847
 # mas "Keynote"                     , id: 409183694
 mas "WhatFont"                    , id: 1437138382
 # mas "Microsoft OneNote"           , id: 784801555
@@ -132,7 +132,6 @@ mas "Disconnect Premium"          , id: 1333277187
 mas "Canary Mail"                 , id: 1236045954
 mas "WireGuard"                   , id: 1451685025
 mas "Bitwarden"                   , id: 1352778147
-mas "Xcode"                       , id: 497799835
 mas "WhatsApp"                    , id: 1147396723
 mas "Shareful"                    , id: 1522267256
 mas "Camera Preview"              , id: 1632827132
@@ -148,4 +147,3 @@ mas "Lungo"                       , id: 1263070803
 mas "PiPifier"                    , id: 1160374471
 mas "Slack"                       , id: 803453959
 mas "Hidden Bar"                  , id: 1452453066
-mas "DaisyDisk"                   , id: 411643860
