@@ -12,12 +12,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
+# variable holding new computer name
+newComputerName="StellarGT"
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "psj"
-sudo scutil --set HostName "psj"
-sudo scutil --set LocalHostName "psj"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName "psj"
+sudo scutil --set ComputerName "$newComputerName"
+sudo scutil --set HostName "$newComputerName"
+sudo scutil --set LocalHostName "$newComputerName"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName "$newComputerName"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
