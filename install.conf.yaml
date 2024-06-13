@@ -27,7 +27,7 @@
     - git submodule update --init --recursive
     # - ["brew install coreutils", "Installing latest and greatest gnu utils."]
     - ["cargo install coreutils", "Installing gnu utils."]
-    - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
+    # - ln -s "$(brew --prefix)/bin/gsha256sum" "$(brew --prefix)/bin/sha256sum"
     - ["git clone https://github.com/mattmc3/antidote.git ~/.antidote", "Cloning antidote"]
     -
       command: brew upgrade

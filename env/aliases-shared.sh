@@ -31,7 +31,7 @@ alias la="ls -halF ${colorflag}"
 alias lsd="ls -hlF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
-alias ls="command exa ${colorflag}"
+alias ls="command eza ${colorflag}"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
