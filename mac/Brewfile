@@ -34,7 +34,7 @@ brew "git-lfs"
 # brew "imagemagick", args: ["with-webp"]
 brew "mas"
 brew "miniserve"
-brew "mono"
+# brew "mono"
 brew "ncdu"
 brew "nmap"
 brew "p7zip"
