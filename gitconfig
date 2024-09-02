@@ -132,7 +132,8 @@
 	tool = nvimdiff
   # conflictstyle = diff3
 
-# [mergetool "nvimdiff"]
+[mergetool "nvimdiff"]
+  hideResolved = true
 #   cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 
 [push]

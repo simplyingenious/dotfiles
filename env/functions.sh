@@ -222,3 +222,7 @@ function smartcompress() {
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;
 }
+
+function vmac() {
+  echo -n 02; god -tx1 -An -N5 /dev/urandom | tr ' ' ':';
+}
