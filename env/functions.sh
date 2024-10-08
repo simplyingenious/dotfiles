@@ -226,3 +226,7 @@ function gi() {
 function vmac() {
   echo -n 02; god -tx1 -An -N5 /dev/urandom | tr ' ' ':';
 }
+
+function macgen() {
+  echo $FQDN$RANDOM|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'
+}

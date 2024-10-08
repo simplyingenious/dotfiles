@@ -3,14 +3,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # source $HOME/.zsh-plugins.sh
 
 # Set Visual Studio Code as the default editor
-export EDITOR="code -w"
-
-# # Enable persistent REPL history for `node`.
-# export NODE_REPL_HISTORY=~/.node_history;
-# # Allow 32³ entries; the default is 1000.
-# export NODE_REPL_HISTORY_SIZE='32768';
-# # Use sloppy mode by default, matching web browsers.
-# export NODE_REPL_MODE='sloppy';
+export EDITOR="nvim"
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
@@ -51,10 +44,13 @@ export MANPAGER='less -X';
 export GPG_TTY=$(tty);
 
 # fast ruby version manager
-eval "$(frum init)"
+# eval "$(frum init)"
 
 # fast node manager
 eval "$(fnm env --use-on-cd)"
+
+# mise, The front-end to your dev env
+eval "$($(brew --prefix)/bin/mise activate zsh)"
 
 # Bind UP and DOWN arrow keys
 # Copied from https://github.com/zsh-users/zsh-history-substring-search/tree/47a7d416c652a109f6e8856081abc042b50125f4#usage
