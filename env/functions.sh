@@ -45,7 +45,7 @@ extract () {
       *.tar.bz2)   tar xvjf $1    ;;
       *.tar.gz)    tar xvzf $1    ;;
       *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar x $1       ;;
+      *.rar)       unrar x $1     ;;
       *.gz)        gunzip $1      ;;
       *.tar)       tar xvf $1     ;;
       *.tbz2)      tar xvjf $1    ;;
@@ -178,7 +178,7 @@ function o() {
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 function tre() {
-	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+	tree -aC -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
 }
 
 # ################################
@@ -196,15 +196,15 @@ function killpid () {
 
 # Downloads a .mp3 file
 function dlmp3 () {
-  youtube-dl --extract-audio --audio-format mp3 $1
+  yt-dlp --extract-audio --audio-format mp3 $1
 }
 
 function dlm4a () {
-  youtube-dl --extract-audio --audio-format m4a $1
+  yt-dlp --extract-audio --audio-format m4a $1
 }
 
 function dlmp4 () {
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1
+  yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1
 }
 
 function resetdns() {
@@ -215,9 +215,10 @@ function resetdns() {
   sudo launchctl start homebrew.mxcl.dnsmasq
 }
 
-function smartcompress() {
-  mogrify -path "$2" -filter Triangle -define filter:support=2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$1"
-}
+# Requires ImageMagick
+# function smartcompress() {
+#   mogrify -path "$2" -filter Triangle -define filter:support=2 -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB "$1"
+# }
 
 function gi() {
   curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;
@@ -230,3 +231,4 @@ function vmac() {
 function macgen() {
   echo $FQDN$RANDOM|md5sum|sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/02:\1:\2:\3:\4:\5/'
 }
+

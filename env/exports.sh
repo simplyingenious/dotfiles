@@ -43,6 +43,9 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
+export CONCURRENTLY_KILL_OTHERS=true
+export CONCURRENTLY_HANDLE_INPUT=true
+
 # fast ruby version manager
 # eval "$(frum init)"
 
@@ -86,8 +89,6 @@ if [[ -f .env ]]; then
   source .env
   set +a
 fi
-
-source $HOME/.config/broot/launcher/bash/br
 
 # Setting PATHs
 # export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"

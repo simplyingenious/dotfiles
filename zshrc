@@ -28,6 +28,7 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports.sh"
+  source "$PROJECT_ROOT/env/loadenv.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
 
