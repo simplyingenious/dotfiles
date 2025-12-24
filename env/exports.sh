@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# source $HOME/.zsh-plugins.sh
+
+# Load LLM API keys
+[ -f $HOME/.config/.api-key.env ] && source $HOME/.config/.api-key.env
 
 # Set Visual Studio Code as the default editor
 export EDITOR="nvim"
@@ -106,6 +108,12 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bun completions
 [ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"
+
+# bitwarden ssh-agent
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
+
+# LM Studio
+export PATH="$PATH:$HOME/.lmstudio/bin"
 
 # antidote
 # clone antidote if necessary and generate a static plugin file

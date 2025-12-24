@@ -31,6 +31,3 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/loadenv.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
-
-# bun completions
-[ -s "/Users/salmanjaved/.bun/_bun" ] && source "/Users/salmanjaved/.bun/_bun"

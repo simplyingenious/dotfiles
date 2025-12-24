@@ -1,19 +1,12 @@
 #!/bin/bash
 # loadenv.sh - Load environment variables from app-specific and common files
-# Usage: source loadenv.sh app_name
+# Usage: source loadenv.sh [app_name]
 
 function loadenv() {
-    local app_name="$1"
+    local app_name="${1:-$(basename "$(pwd)")}"
     local env_file=""
     local common_env_file=""
     local loaded_files=0
-
-    # Check if app name is provided
-    if [ -z "$app_name" ]; then
-        echo "Error: Please provide an application name"
-        echo "Usage: loadenv app_name"
-        return 1
-    fi
 
     # Try different possible locations for the common env file
     common_locations=(
