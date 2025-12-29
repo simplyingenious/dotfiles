@@ -2,8 +2,57 @@
 # loadenv.sh - Load environment variables from app-specific and common files
 # Usage: source loadenv.sh [app_name]
 
+# Function to load variables from a file
+load_from_file() {
+    local file="$1"
+    local prefix="$2"
+
+    echo "Loading environment from: $file"
+
+    # Load the environment variables
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        # Skip comments and empty lines
+        if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "$line" ]]; then
+            continue
+        fi
+
+        # Remove inline comments
+        line=$(echo "$line" | sed 's/#.*$//')
+
+        # Trim whitespace
+        line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+        # Skip if line is now empty
+        if [[ -z "$line" ]]; then
+            continue
+        fi
+
+        # Parse the variable name and value
+        var_name=$(echo $line | cut -d= -f1 | sed -e 's/^export //')
+        var_value=$(echo $line | cut -d= -f2-)
+
+        # Remove surrounding quotes from the value if present
+        # This mimics the behavior of direct source command
+        if [[ "$var_value" =~ ^\"(.*)\"$ || "$var_value" =~ ^\'(.*)\'$ ]]; then
+            # Remove the quotes using parameter expansion
+            var_value="${var_value:1:${#var_value}-2}"
+        fi
+
+        # Export the variable in a shell-compatible way
+        export "$var_name=$var_value"
+
+        echo "${prefix}Set: $var_name"
+    done < "$file"
+
+    return 0
+}
+
+get_app_name() {
+    echo "${1:-$(basename "$(pwd)")}"
+}
+
 function loadenv() {
-    local app_name="${1:-$(basename "$(pwd)")}"
+    local app_name="$(get_app_name "$1")"
     local env_file=""
     local common_env_file=""
     local loaded_files=0
@@ -41,51 +90,6 @@ function loadenv() {
         fi
     done
 
-    # Function to load variables from a file
-    load_from_file() {
-        local file="$1"
-        local prefix="$2"
-
-        echo "Loading environment from: $file"
-
-        # Load the environment variables
-        while IFS= read -r line || [[ -n "$line" ]]; do
-            # Skip comments and empty lines
-            if [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "$line" ]]; then
-                continue
-            fi
-
-            # Remove inline comments
-            line=$(echo "$line" | sed 's/#.*$//')
-
-            # Trim whitespace
-            line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-
-            # Skip if line is now empty
-            if [[ -z "$line" ]]; then
-                continue
-            fi
-
-            # Parse the variable name and value
-            var_name=$(echo $line | cut -d= -f1 | sed -e 's/^export //')
-            var_value=$(echo $line | cut -d= -f2-)
-
-            # Remove surrounding quotes from the value if present
-            # This mimics the behavior of direct source command
-            if [[ "$var_value" =~ ^\"(.*)\"$ || "$var_value" =~ ^\'(.*)\'$ ]]; then
-                # Remove the quotes using parameter expansion
-                var_value="${var_value:1:${#var_value}-2}"
-            fi
-
-            # Export the variable in a shell-compatible way
-            export "$var_name=$var_value"
-
-            echo "${prefix}Set: $var_name"
-        done < "$file"
-
-        return 0
-    }
-
     # Load common environment variables first, if found
     if [ -n "$common_env_file" ]; then
         load_from_file "$common_env_file" "Shared: "
@@ -112,6 +116,65 @@ function loadenv() {
 
     echo "Environment loaded successfully for '$app_name'"
     return 0
+}
+
+# Function to source a .sh file and then load environment variables from a .env file
+load_sh_and_env() {
+    local app_name="$(get_app_name "$1")"
+    local sh_file=""
+    local env_file=""
+
+    # Try different possible locations for the app-specific sh file
+    sh_locations=(
+        "./$app_name.sh"
+        "./.$app_name.sh"
+        "$HOME/$app_name.sh"
+        "$HOME/.$app_name.sh"
+        "$HOME/.config/$app_name.sh"
+        "$HOME/.config/.$app_name.sh"
+        "../../config/$app_name-dev-config.sh"
+    )
+
+    # Find the first existing app-specific sh file
+    for location in "${sh_locations[@]}"; do
+        if [ -f "$location" ]; then
+            sh_file="$location"
+            break
+        fi
+    done
+
+    # Try different possible locations for the app-specific env file
+    env_locations=(
+        "./$app_name.env"
+        "./.$app_name.env"
+        "$HOME/$app_name.env"
+        "$HOME/.$app_name.env"
+        "$HOME/.config/$app_name.env"
+        "$HOME/.config/.$app_name.env"
+    )
+
+    # Find the first existing app-specific env file
+    for location in "${env_locations[@]}"; do
+        if [ -f "$location" ]; then
+            env_file="$location"
+            break
+        fi
+    done
+
+    if [ -n "$sh_file" ]; then
+        echo "Sourcing shell script: $sh_file"
+        source "$sh_file"
+    else
+        echo "Warning: Shell script not found for '$app_name'"
+        echo "Looked in: ${sh_locations[*]}"
+    fi
+
+    if [ -n "$env_file" ]; then
+        load_from_file "$env_file" "${app_name}: "
+    else
+        echo "Warning: Environment file not found for '$app_name'"
+        echo "Looked in: ${env_locations[*]}"
+    fi
 }
 
 # Detect if being sourced in zsh or bash
