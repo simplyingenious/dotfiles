@@ -31,3 +31,8 @@ elif [[ "$MACHINE" == "Mac" ]]; then
   source "$PROJECT_ROOT/env/loadenv.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/salmanjaved/.lmstudio/bin"
+# End of LM Studio CLI section
+

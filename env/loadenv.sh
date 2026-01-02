@@ -1,6 +1,6 @@
 #!/bin/bash
 # loadenv.sh - Load environment variables from app-specific and common files
-# Usage: source loadenv.sh [app_name]
+# Usage: source loadenv.sh [app_name] [--prod] [--with-sh]
 
 # Function to load variables from a file
 load_from_file() {
@@ -51,14 +51,9 @@ get_app_name() {
     echo "${1:-$(basename "$(pwd)")}"
 }
 
-function loadenv() {
-    local app_name="$(get_app_name "$1")"
-    local env_file=""
+load_common_env() {
     local common_env_file=""
-    local loaded_files=0
-
-    # Try different possible locations for the common env file
-    common_locations=(
+    local common_locations=(
         "./.env"
         "$HOME/.env"
         "$HOME/.config/.env"
@@ -72,40 +67,117 @@ function loadenv() {
         fi
     done
 
-    # Try different possible locations for the app-specific env file
-    app_locations=(
-        "./$app_name.env"
-        "./.$app_name.env"
-        "$HOME/$app_name.env"
-        "$HOME/.$app_name.env"
-        "$HOME/.config/$app_name.env"
-        "$HOME/.config/.$app_name.env"
+    if [ -n "$common_env_file" ]; then
+        load_from_file "$common_env_file" "Shared: "
+        return 0
+    else
+        echo "Note: No common environment file found"
+        echo "Looked in: ${common_locations[*]}"
+        return 1
+    fi
+}
+
+function loadenv() {
+    local app_name=""
+    local env_type="dev"
+    local with_sh=false
+
+    # Parse options (long and short, with combined shorts)
+    while [[ $# -gt 0 ]]; do
+        if [[ $1 == --* ]]; then
+            case $1 in
+                --prod) env_type="prod"; shift ;;
+                --with-sh) with_sh=true; shift ;;
+                *) echo "Invalid long option: $1" >&2; return 1 ;;
+            esac
+        elif [[ $1 == -* ]]; then
+            local optstring="${1#-}"
+            while [[ -n $optstring ]]; do
+                case ${optstring:0:1} in
+                    p) env_type="prod" ;;
+                    w) with_sh=true ;;
+                    *) echo "Invalid short option: -${optstring:0:1}" >&2; return 1 ;;
+                esac
+                optstring="${optstring:1}"
+            done
+            shift
+        else
+            app_name="$1"
+            shift
+        fi
+    done
+
+    # Get app name (first remaining argument or default to current dir)
+    if [ -z "$app_name" ]; then
+        app_name="$(get_app_name "$1")"
+    fi
+
+    # Set file suffix based on environment type
+    local suffix=""
+    if [ "$env_type" = "prod" ]; then
+        suffix="-prod"
+    fi
+
+    local loaded_files=0
+
+    # Load common environment variables first
+    if load_common_env; then
+        ((loaded_files++))
+    fi
+
+    # Load .sh file if requested
+    if $with_sh; then
+        local sh_file=""
+        local sh_locations=(
+            "./$app_name.sh"
+            "./.$app_name.sh"
+            "$HOME/$app_name.sh"
+            "$HOME/.$app_name.sh"
+            "$HOME/.config/$app_name.sh"
+            "$HOME/.config/.$app_name.sh"
+            "../../config/$app_name-dev-config.sh"
+        )
+
+        for location in "${sh_locations[@]}"; do
+            if [ -f "$location" ]; then
+                sh_file="$location"
+                break
+            fi
+        done
+
+        if [ -n "$sh_file" ]; then
+            echo "Sourcing shell script: $sh_file"
+            source "$sh_file"
+        else
+            echo "Warning: Shell script not found for '$app_name'"
+            echo "Looked in: ${sh_locations[*]}"
+        fi
+    fi
+
+    # Load app-specific environment variables
+    local env_file=""
+    local env_locations=(
+        "./${app_name}${suffix}.env"
+        "./.${app_name}${suffix}.env"
+        "$HOME/${app_name}${suffix}.env"
+        "$HOME/.${app_name}${suffix}.env"
+        "$HOME/.config/${app_name}${suffix}.env"
+        "$HOME/.config/.${app_name}${suffix}.env"
     )
 
-    # Find the first existing app-specific env file
-    for location in "${app_locations[@]}"; do
+    for location in "${env_locations[@]}"; do
         if [ -f "$location" ]; then
             env_file="$location"
             break
         fi
     done
 
-    # Load common environment variables first, if found
-    if [ -n "$common_env_file" ]; then
-        load_from_file "$common_env_file" "Shared: "
-        ((loaded_files++))
-    else
-        echo "Note: No common environment file found"
-        echo "Looked in: ${common_locations[*]}"
-    fi
-
-    # Load app-specific environment variables, if found
     if [ -n "$env_file" ]; then
         load_from_file "$env_file" "$app_name: "
         ((loaded_files++))
     else
-        echo "Warning: No environment file found for '$app_name'"
-        echo "Looked in: ${app_locations[*]}"
+        echo "Warning: Environment file not found for '$app_name' ($env_type)"
+        echo "Looked in: ${env_locations[*]}"
     fi
 
     # Check if any files were loaded
@@ -114,85 +186,27 @@ function loadenv() {
         return 1
     fi
 
-    echo "Environment loaded successfully for '$app_name'"
+    echo "Environment loaded successfully for '$app_name' ($env_type)"
     return 0
 }
 
-# Function to source a .sh file and then load environment variables from a .env file
-load_sh_and_env() {
-    local app_name="$(get_app_name "$1")"
-    local sh_file=""
-    local env_file=""
-
-    # Try different possible locations for the app-specific sh file
-    sh_locations=(
-        "./$app_name.sh"
-        "./.$app_name.sh"
-        "$HOME/$app_name.sh"
-        "$HOME/.$app_name.sh"
-        "$HOME/.config/$app_name.sh"
-        "$HOME/.config/.$app_name.sh"
-        "../../config/$app_name-dev-config.sh"
-    )
-
-    # Find the first existing app-specific sh file
-    for location in "${sh_locations[@]}"; do
-        if [ -f "$location" ]; then
-            sh_file="$location"
-            break
-        fi
-    done
-
-    # Try different possible locations for the app-specific env file
-    env_locations=(
-        "./$app_name.env"
-        "./.$app_name.env"
-        "$HOME/$app_name.env"
-        "$HOME/.$app_name.env"
-        "$HOME/.config/$app_name.env"
-        "$HOME/.config/.$app_name.env"
-    )
-
-    # Find the first existing app-specific env file
-    for location in "${env_locations[@]}"; do
-        if [ -f "$location" ]; then
-            env_file="$location"
-            break
-        fi
-    done
-
-    if [ -n "$sh_file" ]; then
-        echo "Sourcing shell script: $sh_file"
-        source "$sh_file"
-    else
-        echo "Warning: Shell script not found for '$app_name'"
-        echo "Looked in: ${sh_locations[*]}"
-    fi
-
-    if [ -n "$env_file" ]; then
-        load_from_file "$env_file" "${app_name}: "
-    else
-        echo "Warning: Environment file not found for '$app_name'"
-        echo "Looked in: ${env_locations[*]}"
-    fi
-}
 
 # Detect if being sourced in zsh or bash
 if [ -n "$ZSH_VERSION" ]; then
     # ZSH specific handling
     if [[ "$0" != "$ZSH_ARGZERO" && "$#" -gt 0 ]]; then
-        loadenv "$1"
+        loadenv "$@"
     fi
 elif [ -n "$BASH_VERSION" ]; then
     # BASH specific handling
     if [[ "${BASH_SOURCE[0]}" != "${0}" && "$#" -gt 0 ]]; then
-        loadenv "$1"
+        loadenv "$@"
     fi
 else
     # Generic fallback
     # Assuming if not executed directly, then it's being sourced
     if [[ "$#" -gt 0 ]]; then
-        loadenv "$1"
+        loadenv "$@"
     fi
 fi
 
